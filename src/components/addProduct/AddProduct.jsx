@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import './AddProduct.css';
 import upload_area from '../../assets/upload_area.svg';
+import PasswordModal from '../passwordModal/PasswordModal';
 
 function AddProduct() {
   const [image, setImage] = useState(null);
   const [errors, setErrors] = useState({});
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [productDetails, setProductDetails] = useState({
     name: '',
     image: '',
@@ -100,6 +102,10 @@ function AddProduct() {
       setImage(null); // Reset image preview
     }
   };
+
+  if (!isAuthenticated) {
+    return <PasswordModal onSubmit={() => setIsAuthenticated(true)} />;
+  }
 
   return (
     <div className='add-product'>
