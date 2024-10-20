@@ -56,7 +56,11 @@
     font-size: 16px;
     font-weight: 500;
 }
-
+.error {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 5px;
+}
 @media(max-width: 800px){
     .add-product{
         width: auto;
